@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 // import JWTGenerator from "./jwt";
 import Checkout from "./Checkout";
-
+import Squatch from "./Squatch";
 import "./styles.css";
 
 const trackPurchase = value => {
@@ -24,9 +24,17 @@ function App() {
     }
   });
 
+  window.squatch.ready(function() {
+    window.squatch.init({
+      tenantAlias: "test_a77p9gyhb06ks",
+      domain: "https://staging.referralsaasquatch.com"
+    });
+  });
+
   return (
     <div className="App">
       <Checkout onSubmit={value => trackPurchase(value)} />
+      <Squatch />
       <h1>Segment + SaaSquatch</h1>
       <h2>
         Segment customers can use analytics.js instead of directly using the
@@ -64,14 +72,16 @@ function App() {
       <br />
 
       <h3>Set up Attribution</h3>
-      <p>If you want to do attribution without our JS library, go here.</p>
-      <p>8. Install Squatch.js in your app for attribution: go to docs here</p>
+      <p>If you want to do attribution without our JS library, [go here.]</p>
+      <p>
+        8. Install Squatch.js in your app for attribution: [go to docs here]
+      </p>
 
       <br />
 
       <h3>Verification Step</h3>
 
-      <p>1. Make a referral. If you need more information, go here.</p>
+      <p>1. Make a referral. If you need more information, [go here.]</p>
       <p>2. Trigger the conversion event that you set up in step 6</p>
     </div>
   );
