@@ -17,17 +17,27 @@ class Squatch extends React.Component {
       const user = window.analytics.user();
       const id = user.id();
       const initObj = {
+        // Replace with your tenant alias in the SaaSquatch app
+        tenantAlias: "test_a77p9gyhb06ks",
+
+        // Replace your widgetType and programID in the SaaSquatch app
+        widgetType: "p/referral-program/w/referrerWidget",
+        programId: "referral-program",
+
         user: {
           id,
           accountId: id,
           email: user.email,
           name: user.name
         },
+
+        // TODO: remove appDomain
         appDomain: "https://staging.referralsaasquatch.com",
-        tenantAlias: "test_a77p9gyhb06ks",
+
         engagementMedium: "EMBED",
-        widgetType: "p/referral-program/w/referrerWidget",
-        programId: "referral-program",
+
+        // Read more about JWT here
+        // https://docs.referralsaasquatch.com/topics/json-web-tokens/
         jwt: {}
       };
 
@@ -36,8 +46,8 @@ class Squatch extends React.Component {
       window.squatch
         .widgets()
         .upsertUser(initObj)
-        .then(function(response) {})
-        .catch(function(error) {
+        .then(response => {})
+        .catch(error => {
           console.log(error);
         });
     });
@@ -47,7 +57,7 @@ class Squatch extends React.Component {
     return (
       <div>
         <input
-          placeholder="Enter key"
+          placeholder="Enter API key"
           type="text"
           value={this.state.revenue}
           onChange={this.changeHandler}
