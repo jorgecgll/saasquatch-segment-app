@@ -29,10 +29,7 @@ function App() {
 
   squatch.ready(function() {
     squatch.init({
-      tenantAlias: "test_a77p9gyhb06ks",
-
-      // TODO: remove domain
-      domain: "https://staging.referralsaasquatch.com"
+      tenantAlias: "test_a77p9gyhb06ks"
     });
   });
 

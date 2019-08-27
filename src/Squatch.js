@@ -31,9 +31,6 @@ class Squatch extends React.Component {
           name: user.name
         },
 
-        // TODO: remove appDomain
-        appDomain: "https://staging.referralsaasquatch.com",
-
         engagementMedium: "EMBED",
 
         // Read more about JWT here
